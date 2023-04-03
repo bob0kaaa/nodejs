@@ -11,7 +11,7 @@ const jsonParser = express.json();
 
 const pool = mysql.createPool({
     connectionLimit: 5,
-    host: "10.80.128.95",
+    host: "127.0.0.1",
     user: "inser",
     database: "pc_tu",
     password: ""
