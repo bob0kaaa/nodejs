@@ -1,0 +1,98 @@
+<div class="top">
+    <div class="size">
+        <nav>
+            <div class="nav-wrapper">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" onkeyup="TableSearch()" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+    <div class="center">   
+        <ul class="pagination">
+            {{#if ActivInventory}}
+                <li class="active"><a href="/Inventory">Инвентаризация</a></li>
+            {{else}}
+                <li class="waves-effect waves-light"><a href="/Inventory">Инвентаризация</a></li>
+            {{/if}}
+                
+            {{#if ActivNet}}
+                <li class="active"><a href="/Net">Сеть</a></li>
+            {{else}}
+                <li class="waves-effect waves-light"><a href="/Net">Сеть</a></li>
+            {{/if}}
+        </ul>
+        <a class="waves-effect waves-light btn-small btn blue darken-4 dow">{{DL}}</a>
+        <a href="/DB_Table.xlsx" class="waves-effect waves-light btn-small blue darken-4 dow"><i class="material-icons">description</i></a>
+    </div>
+    
+</div>
+
+<div class="size">
+    <table id="info-table" class="highlight">
+        <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Дата</th>
+            <th>Время</th>
+            <th>Модель</th>
+            <th>Монитор</th>
+            <th>Серийный номер</th>
+            <th class="mini-size"></th>
+            <th class="com">Комментарий</th>
+            <th class="mini-size"></th>
+            <th class="mini-size"></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        {{#each all}}
+            <tr class="data-td tooltipped" data-position="left" data-tooltip="{{this.user}}<br>{{this.user_unit}}">
+                <td data="Имя" id="name-td">{{this.name}}</td>
+                <td data="Комментарий" class="com hidden">{{this.comment}}</td>
+                <td data="Дата">{{this.date}}</td>
+                <td data="Время">{{this.time}}</td>
+                <td class="mac-td hidden">{{this.mac}}</td>
+                <td data="Модель">{{this.model}}</td>
+                <td class="screen_data x" data="Монитор">{{this.screen_sn}}</td>
+                <form class="form-edit">
+                    <td data="Серийный номер">
+                        <input type="text" name="upsn" class="input-field col s1 hidden" id="input" value="{{this.sn}}">
+                        <div id="sn">{{this.sn}}</div>
+                        <input type="text" name="sn_old" class="hidden" id="post" value="{{this.sn}}">
+                    </td>
+                    <td id="edit-data" data="Изменить">
+                        <a class="edit-btn waves-effect waves-light btn blue darken-4" id="edit"><i class="material-icons">mode_edit</i></a>
+                        <button type="submit" class="hidden submit-btn edit-btn hidden waves-effect waves-light btn blue darken-4" id="submit" ><i class="material-icons">check</i></button>
+                    </td>
+                </form>
+                <form class="form-com">
+                    <td data="Комментарий">
+                        <input type="text" name="upsn-com" class="input-field col s1 hidden text-com" id="input-com" value="{{this.comment}}">
+                        <div id="com-data">{{this.comment}}</div>
+                        <input type="text" name="old_com" class="hidden" id="post-com" value="{{this.comment}}">
+                    </td>
+                    <td id="edit-data" data="Комментарий">
+                        <a class="com-btn waves-effect waves-light btn blue darken-4" id="com"><i class="material-icons">insert_comment</i></a>
+                        <button type="submit" class="hidden submit-btn-com edit-btn hidden waves-effect waves-light btn blue darken-4" id="submit-com" ><i class="material-icons">check</i></button>
+                    </td>
+                </form>
+                <td id="edit-data" data="Удалить">
+                    <a class="exit-btn hidden waves-effect waves-light btn blue darken-4" id="exit-btn"><i class="material-icons">undo</i></a>
+                    <a class="del-btn waves-effect waves-light btn blue darken-4" id="del-btn"><i class="material-icons">delete_forever</i></a>
+                    <a class="exit-btn-com hidden waves-effect waves-light btn blue darken-4" id="exit-btn-com"><i class="material-icons">undo</i></a>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+<script src="/script.js"></script>

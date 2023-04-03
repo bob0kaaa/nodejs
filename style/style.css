@@ -1,0 +1,162 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: helvetica;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main{
+    flex: 1 0 auto;
+}
+
+.nav-btn-aud{
+    width: 48pt;
+    height: 48pt;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.form1 {
+    position: absolute;
+}
+
+.app {
+    position: absolute;
+    display: none;
+    width: 6%;
+}
+
+.visible {
+    max-width: 6%;
+    display: initial;
+}
+
+.hidden {
+    display: none;
+}
+
+.button{
+    width: 30pt;
+    height: 15pt;
+    float: left;
+    display: inline;
+}
+
+.center{
+    position: sticky;
+    top: 15pt;
+}
+
+.top{
+    margin-top: 10pt;
+}
+
+.size{
+    margin: auto;
+    width: 70%;
+}
+ th {
+    width: 10%;
+ }
+
+ #edit-data{
+    width: 3%;
+ }
+
+
+@media screen and (max-width: 1200px) {
+    table thead {
+        display: none;
+    }
+
+    table th {
+        border: none;
+    }
+
+    table th, table td {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    table tr {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        border-bottom: 1px solid rgba(0, 0, 0, 1);
+    }
+
+    table td {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+    }
+
+    table td:before {
+        content: attr(data);
+        font-weight: bold;
+    }
+
+    table td:first-child {
+        background-color: rgba(0, 0, 0, 0.12);
+    }
+    #edit-data{
+        width: 100%;
+    }
+    .btn{
+        max-width: 50px;
+    }
+}
+.name_dg{
+    word-spacing: 9999px;
+    text-align: center;
+}
+
+.row-net{
+    display:inline;
+    float:left;
+}
+
+h5{
+    font-weight: bold;
+    color: white;
+}
+
+.opacity{
+    opacity: .2;
+}
+
+.top-card{
+    margin-top: 7%;
+}
+
+.screen_data{
+    word-wrap: break-word;
+}
+
+.com{
+    width: 15%;
+}
+
+.text-com{
+    word-wrap: break-word;
+}
+
+.padding-left{
+    padding-left: 8%;
+}
+
+.dow{
+    margin-bottom: 10pt;
+}
+
+thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    z-index: 2;
+    background-color: white;
+}
+
+.mini-size{
+    width: 0%;
+}

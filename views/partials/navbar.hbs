@@ -1,0 +1,95 @@
+{{#if ActivInventory}}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="size">
+                    <a href="/" class="brand-logo"><i class="material-icons">home</i></a>
+                    <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <form action="/work/Inventory" method="post" id="Work">
+                            <li><button class="nav-btn-aud" type="submit" name="work"><i class="material-icons">group</i></button></li>
+                        </form>
+                    </ul>
+                    {{#each aud_num}}
+                        {{#each this}}
+                            <ul class="right hide-on-med-and-down">
+                                <form action="/{{this}}/Inventory" method="post" id="Aud">
+                                    <li><button class="nav-btn-aud" type="submit" name="upvote" value={{this}} />{{this}}</button></li>
+                                </form>
+                            </ul>
+                        {{/each}}
+                    {{/each}}
+                </div>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+            <form action="/work/Inventory" method="post" id="Work">
+                <li><button class="nav-btn-aud" type="submit" name="work"><i class="material-icons">group</i></button></li>
+            </form>
+        {{#each aud_num}}
+            {{#each this}}
+                    <form action="/{{this}}/Inventory" method="post" id="Aud">
+                        <li><button class="menu-btn-aud" type="submit" name="upvote" value={{this}} />{{this}}</li>
+                    </form>
+            {{/each}}
+        {{/each}}
+    </ul>
+{{/if}}
+{{#if ActivNet}}    
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="size">
+                    <a href="/" class="brand-logo"><i class="material-icons">home</i></a>
+                    <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <form action="/work/Net" method="post" id="Work">
+                            <li><button class="nav-btn-aud" type="submit" name="work"><i class="material-icons">group</i></button></li>
+                        </form>
+                    </ul>
+                    {{#each aud_num}}
+                        {{#each this}}
+                            <ul class="right hide-on-med-and-down">
+                                <form action="/{{this}}/Net" method="post" id="Aud">
+                                    <li><button class="nav-btn-aud" type="submit" name="upvote" value={{this}} />{{this}}</button></li>
+                                </form>
+                            </ul>
+                        {{/each}}
+                    {{/each}}
+                </div>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+            <form action="/work/Net" method="post" id="Work">
+                <li><button class="nav-btn-aud" type="submit" name="work"><i class="material-icons">group</i></button></li>
+            </form>
+        {{#each aud_num}}
+            {{#each this}}
+                    <form action="/{{this}}/Net" method="post" id="Aud">
+                        <li><button class="menu-btn-aud" type="submit" name="upvote" value={{this}} />{{this}}</li>
+                    </form>
+            {{/each}}
+        {{/each}}
+    </ul>
+{{/if}}
+{{#if Home}}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+            </div>
+        </nav>
+    </div>
+{{/if}}
+{{#if Topology}}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="size">
+                    <a href="/" class="brand-logo"><i class="material-icons">home</i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+{{/if}}

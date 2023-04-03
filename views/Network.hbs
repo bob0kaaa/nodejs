@@ -1,0 +1,69 @@
+<div class="top">
+    <div class="size">
+        <nav>
+            <div class="nav-wrapper">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" onkeyup="TableSearch()" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="center">
+    <ul class="pagination">
+        {{#if ActivInventory}}
+            <li class="active"><a href="/Inventory">Инвентаризация</a></li>
+        {{else}}
+            <li class="waves-effect waves-light"><a href="/Inventory">Инвентаризация</a></li>
+        {{/if}}
+
+        {{#if ActivNet}}
+            <li class="active"><a href="/Net">Сеть</a></li>
+        {{else}}
+            <li class="waves-effect waves-light"><a href="/Net">Сеть</a></li>
+        {{/if}}   
+    </ul>
+    <a class="waves-effect waves-light btn-small btn blue darken-4 dow">{{DL}}</a>
+</div>
+<div class="size">
+    <table id="info-table" class="highlight">
+        <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Дата</th>
+            <th>Время</th>
+            <th>IPv4</th>
+            <th>Шлюз</th>
+            <th>Маска</th>
+            <th>MAC</th>
+            <th>Сетевой адаптер</th>
+            <th>Тип подключения</th>
+            <th class="mini-size"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        {{#each all}}
+            <tr class="data-td tooltipped" data-position="left" data-tooltip="{{this.user}}<br>{{this.user_unit}}">
+                <td data="Имя" id="name-td">{{this.name}}</td>
+                <td data="Дата" >{{this.date}}</td>
+                <td data="Время" >{{this.time}}</td>
+                <td data="IPv4" >{{this.ip_address}}</td>
+                <td data="Шлюз" >{{this.default_get}}</td>
+                <td data="Маска" >{{this.ip_subnet}}</td>
+                <td data="MAC" class="mac-td">{{this.mac}}</td>
+                <td data="Сетевой адаптер" >{{this.net_name}}</td>
+                <td data="Тип подключения" >{{this.net_id}}</td>
+                <td data="Удалить">
+                    <a class="del-btn waves-effect waves-light btn blue darken-4" id="del-btn"><i class="material-icons">delete_forever</i></a>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+<script src="/delscript.js"></script>

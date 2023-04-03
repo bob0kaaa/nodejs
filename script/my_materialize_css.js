@@ -1,0 +1,14 @@
+$(document).ready(function(){
+    $("a.submit").click(function(){
+        document.getElementById("Aud").submit();
+    }); 
+});
+$(document).ready(function(){
+$('.sidenav').sidenav();
+});
+$(document).ready(function(){
+$('.modal').modal();
+});
+$(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
