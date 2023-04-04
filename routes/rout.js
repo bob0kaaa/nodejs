@@ -11,7 +11,7 @@ const jsonParser = express.json();
 
 const pool = mysql.createPool({
     connectionLimit: 5,
-    host: "127.0.0.1",
+    host: "10.80.128.95",
     user: "inser",
     database: "pc_tu",
     password: ""
@@ -208,9 +208,9 @@ router.post("/update", jsonParser, function (request, response) {
         }
         pool.query("UPDATE `pc_tu` SET sn = " + `'${request.body.New}'` + " WHERE id = " + `'${id_old_sn}'`, function (err, data){
             if (err) return console.log(err);
-            response.json(request.body);
         });
     });
+    response.json(request.body);
 });
 
 router.post("/delite", jsonParser, function (request, response) {
