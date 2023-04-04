@@ -11,7 +11,7 @@ const jsonParser = express.json();
 
 const pool = mysql.createPool({
     connectionLimit: 5,
-    host: "127.0.0.1",
+    host: "10.80.128.95",
     user: "inser",
     database: "pc_tu",
     password: ""
@@ -141,7 +141,7 @@ router.post("/*/Inventory", urlencodedParser,function (request, response) {
             });
         });
     }else{
-        pool.query("SELECT * FROM `pc_tu` WHERE name LIKE '" + `${request.body.upvote}` + "%' ORDER BY name ASC", function (err, data) {
+        pool.query("SELECT * FROM `pc_tu` WHERE name LIKE '" + `${request.body.upvote}` + "%' ORDER BY name", function (err, data) {
             if (err) return console.log(err);
             Data_length = data.length;
             inv_data = data;
@@ -201,7 +201,7 @@ router.get("/Topology", function (req, res) {
 
 router.post("/update", jsonParser, function (request, response) {
     if(!request.body) return response.sendStatus(400);
-    pool.query("SELECT id FROM pc_tu WHERE sn LIKE '" + `${request.body.Old}`, function (err, data) {
+    pool.query("SELECT id FROM pc_tu WHERE sn LIKE '" + `${request.body.Old}` + "%'", function (err, data) {
         if (err) return console.log(err);
         for (let i = 0; i < data.length; i++) {
             id_old_sn = data[i].id;
